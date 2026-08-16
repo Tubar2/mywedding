@@ -1,0 +1,21 @@
+.placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.placeholder__title {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  color: var(--color-gold);
+}
+
+.placeholder__text {
+  color: var(--color-text-soft);
+  font-size: 1.1rem;
+}

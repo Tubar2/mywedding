@@ -1,0 +1,51 @@
+.home {
+  flex: 1;
+  display: flex;
+}
+
+.home__hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-cream);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem 1.25rem 4rem;
+  min-height: calc(100dvh - 66px);
+}
+
+.home__hero-content {
+  text-align: center;
+  max-width: 32rem;
+}
+
+.home__names {
+  font-family: var(--font-script);
+  font-size: 3.4rem;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.home__date {
+  margin-top: 0.75rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.home__hero-content .countdown {
+  margin-top: 2.25rem;
+}
+
+@media (min-width: 720px) {
+  .home__names {
+    font-size: 5rem;
+  }
+
+  .home__date {
+    font-size: 1.4rem;
+  }
+}
