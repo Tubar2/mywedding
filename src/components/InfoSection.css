@@ -1,0 +1,119 @@
+.info-section {
+  padding: 2.5rem 1.25rem 3rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.info-section__title {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.info-section__intro {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--color-text-soft);
+}
+
+.info-section__card {
+  margin-top: 3rem;
+  background: #fff;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.info-section__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.info-section__details {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.info-section__local-name {
+  font-size: 1.6rem;
+  color: var(--color-text);
+}
+
+.info-section__datetime {
+  margin-top: 0.35rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.info-section__text {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.info-section__map {
+  display: block;
+  width: 100%;
+  height: 16rem;
+  margin-top: 3rem;
+  border: 0;
+  border-radius: 0.75rem;
+}
+
+.info-section__map-link {
+  display: block;
+  width: fit-content;
+  margin: 1.5rem auto 0;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  color: var(--color-gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.info-section__map-link:hover {
+  background-color: var(--color-gold);
+  color: #fff;
+}
+
+@media (min-width: 720px) {
+  .info-section {
+    padding: 4rem 1.5rem 4rem;
+  }
+
+  .info-section__title {
+    font-size: 3.2rem;
+  }
+
+  .info-section__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .info-section__image {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info-section__details {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .info-section__map {
+    height: 22rem;
+  }
+}
