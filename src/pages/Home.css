@@ -4,24 +4,31 @@
 }
 
 .home__hero {
+  position: relative;
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: var(--color-cream);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 2rem 1.25rem 4rem;
-  min-height: calc(100dvh - 66px);
+  padding: 1.5rem 1.25rem 0;
+  overflow: hidden;
 }
 
 .home__hero-content {
+  position: relative;
+  z-index: 1;
   text-align: center;
   max-width: 32rem;
 }
 
+.home__logo {
+  width: 7.5rem;
+  height: auto;
+}
+
 .home__names {
+  margin-top: 1.5rem;
   font-family: var(--font-script);
   font-size: 3.4rem;
   color: var(--color-text);
@@ -40,8 +47,34 @@
   margin-top: 2.25rem;
 }
 
+.home__flowers {
+  width: 100%;
+  max-width: 90rem;
+  height: auto;
+  margin-top: 2.5rem;
+  align-self: center;
+}
+
 @media (min-width: 720px) {
+  .home__hero {
+    padding-top: 2.5rem;
+    min-height: calc(100dvh - 82px);
+  }
+
+  .home__flowers {
+    width: 118vw;
+    max-width: none;
+    margin-top: auto;
+    margin-left: calc(50% - 59vw);
+    margin-right: calc(50% - 59vw);
+  }
+
+  .home__logo {
+    width: 15.5rem;
+  }
+
   .home__names {
+    margin-top: 2.25rem;
     font-size: 5rem;
   }
 
