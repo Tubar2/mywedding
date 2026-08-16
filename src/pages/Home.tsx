@@ -1,6 +1,6 @@
 import Countdown from '../components/Countdown'
 import logoLR from '../assets/images/logo-LR.svg'
-import flowerBackground from '../assets/images/flower-background.svg'
+import flowerBackground from '../assets/images/flower-background.webp'
 import './Home.css'
 
 const WEDDING_DATE = new Date('2026-10-31T16:00:00-03:00')
