@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  background: #f1e3c9;
-  border: 1px solid #ddc298;
+  background: #fff;
+  border: 2px solid var(--color-gold);
   border-radius: 0.75rem;
   box-shadow: 0 2px 4px rgba(74, 59, 42, 0.08), 0 10px 24px rgba(74, 59, 42, 0.1);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -18,7 +18,7 @@
   align-self: flex-start;
   padding: 0.2rem 0.7rem;
   border-radius: 999px;
-  background: #fff;
+  background: var(--color-cream);
   color: var(--color-gold);
   font-size: 0.75rem;
   letter-spacing: 0.06em;
