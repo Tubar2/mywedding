@@ -1,0 +1,87 @@
+.estadia {
+  flex: 1;
+  padding: 2.5rem 1.25rem 3rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.estadia__title {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.estadia__subtitle {
+  margin-top: 0.35rem;
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.estadia__intro {
+  margin: 1.75rem auto 0;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.estadia__filtros {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.estadia__filtro {
+  padding: 0.5rem 1.4rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.estadia__filtro--ativo {
+  background-color: var(--color-gold);
+  color: #fff;
+}
+
+.estadia__grid {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .estadia {
+    padding: 4rem 1.5rem 4rem;
+  }
+
+  .estadia__title {
+    font-size: 3.2rem;
+  }
+
+  .estadia__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .estadia__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

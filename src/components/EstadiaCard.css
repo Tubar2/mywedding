@@ -1,0 +1,89 @@
+.estadia-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: #f1e3c9;
+  border: 1px solid #ddc298;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(74, 59, 42, 0.08), 0 10px 24px rgba(74, 59, 42, 0.1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.estadia-card:hover {
+  box-shadow: 0 4px 8px rgba(74, 59, 42, 0.1), 0 14px 30px rgba(74, 59, 42, 0.14);
+  transform: translateY(-2px);
+}
+
+.estadia-card__tag {
+  align-self: flex-start;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.estadia-card__nome {
+  margin-top: 0.85rem;
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.estadia-card__valor {
+  margin-top: 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-gold);
+}
+
+.estadia-card__detalhe,
+.estadia-card__descricao,
+.estadia-card__distancia {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--color-text-soft);
+}
+
+.estadia-card__obs {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+}
+
+.estadia-card__links {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.estadia-card__link {
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  color: var(--color-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.estadia-card__link:hover {
+  background-color: var(--color-gold);
+  color: #fff;
+}
+
+.estadia-card__link--rota {
+  border-color: var(--color-text-soft);
+  color: var(--color-text-soft);
+}
+
+.estadia-card__link--rota:hover {
+  background-color: var(--color-text-soft);
+  color: #fff;
+}
