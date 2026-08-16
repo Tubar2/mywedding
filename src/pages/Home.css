@@ -12,6 +12,7 @@
   justify-content: flex-start;
   background-color: var(--color-cream);
   padding: 1.5rem 1.25rem 0;
+  min-height: calc(100dvh - 66px);
   overflow: hidden;
 }
 
@@ -48,10 +49,12 @@
 }
 
 .home__flowers {
-  width: 100%;
-  max-width: 90rem;
+  width: 140vw;
+  max-width: none;
   height: auto;
-  margin-top: 2.5rem;
+  margin-top: auto;
+  margin-left: calc(50% - 70vw);
+  margin-right: calc(50% - 70vw);
   align-self: center;
 }
 
