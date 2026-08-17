@@ -53,7 +53,8 @@
 }
 
 .navbar__links--open {
-  max-height: 260px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .navbar__link {
