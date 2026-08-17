@@ -1,0 +1,92 @@
+.recado-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 1.75rem;
+  background: #fff;
+  border: 2px solid var(--color-gold);
+  border-radius: 0.75rem;
+}
+
+.recado-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.recado-form__field label {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.recado-form__field input,
+.recado-form__field textarea {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.5rem;
+  background: var(--color-cream);
+  color: var(--color-text);
+  resize: vertical;
+}
+
+.recado-form__field input:focus,
+.recado-form__field textarea:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 1px;
+}
+
+.recado-form__contador {
+  align-self: flex-end;
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+}
+
+.recado-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.recado-form__submit {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.recado-form__submit:hover {
+  opacity: 0.9;
+}
+
+.recado-form__submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.recado-form__erro {
+  color: #a94442;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.recado-form--sucesso {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}

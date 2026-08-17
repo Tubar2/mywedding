@@ -1,0 +1,55 @@
+.recados {
+  flex: 1;
+  padding: 2.5rem 1.25rem 3rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.recados__title {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.recados__subtitle {
+  margin-top: 0.35rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-soft);
+}
+
+.recados__title + .recados__subtitle {
+  margin-bottom: 2.25rem;
+}
+
+.recados__lista-title {
+  margin-top: 3rem;
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.recados__estado {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--color-text-soft);
+}
+
+.recados__lista {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+@media (min-width: 720px) {
+  .recados {
+    padding: 4rem 1.5rem 4rem;
+  }
+
+  .recados__title {
+    font-size: 3.2rem;
+  }
+}
