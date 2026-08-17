@@ -1,0 +1,87 @@
+.presente-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem;
+  background: #fff;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(74, 59, 42, 0.08), 0 10px 24px rgba(74, 59, 42, 0.1);
+}
+
+.presente-card--comprado {
+  opacity: 0.7;
+}
+
+.presente-card__categoria {
+  align-self: flex-start;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-cream);
+  color: var(--color-gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.presente-card__nome {
+  margin-top: 0.7rem;
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+.presente-card__lojas {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.presente-card__loja {
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.presente-card__status {
+  margin-top: 1.1rem;
+}
+
+.presente-card__texto-status {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+.presente-card__acao {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.presente-card__acoes {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.presente-card__acoes button {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-text-soft);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.presente-card__erro {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: #a94442;
+}

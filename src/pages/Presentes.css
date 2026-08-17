@@ -1,0 +1,127 @@
+.presentes {
+  flex: 1;
+  padding: 2.5rem 1.25rem 3rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.presentes__title {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.presentes__intro {
+  margin: 1.75rem auto 0;
+  max-width: 38rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.presentes__pix {
+  margin: 2rem auto 0;
+  max-width: 26rem;
+  padding: 1.1rem 1.25rem;
+  background: #fff;
+  border: 2px solid var(--color-gold);
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.presentes__pix-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.presentes__pix-linha {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.presentes__pix-linha code {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  word-break: break-all;
+}
+
+.presentes__pix-linha button {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-gold);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.presentes__filtros {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.presentes__filtro {
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.presentes__filtro--ativo {
+  background-color: var(--color-gold);
+  color: #fff;
+}
+
+.presentes__estado {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--color-text-soft);
+}
+
+.presentes__grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .presentes__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 720px) {
+  .presentes {
+    padding: 4rem 1.5rem 4rem;
+  }
+
+  .presentes__title {
+    font-size: 3.2rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .presentes__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

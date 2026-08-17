@@ -3,9 +3,10 @@ import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../lib/supabase'
 import RecadosPanel from '../components/admin/RecadosPanel'
 import FamiliasPanel from '../components/admin/FamiliasPanel'
+import PresentesPanel from '../components/admin/PresentesPanel'
 import './Admin.css'
 
-type Aba = 'recados' | 'familias'
+type Aba = 'recados' | 'familias' | 'presentes'
 
 function Admin() {
   const [session, setSession] = useState<Session | null | undefined>(
@@ -91,6 +92,12 @@ function Admin() {
           Famílias (RSVP)
         </button>
         <button
+          className={`admin__tab ${aba === 'presentes' ? 'admin__tab--ativa' : ''}`}
+          onClick={() => setAba('presentes')}
+        >
+          Presentes
+        </button>
+        <button
           className={`admin__tab ${aba === 'recados' ? 'admin__tab--ativa' : ''}`}
           onClick={() => setAba('recados')}
         >
@@ -98,7 +105,9 @@ function Admin() {
         </button>
       </div>
 
-      {aba === 'familias' ? <FamiliasPanel /> : <RecadosPanel />}
+      {aba === 'familias' && <FamiliasPanel />}
+      {aba === 'presentes' && <PresentesPanel />}
+      {aba === 'recados' && <RecadosPanel />}
     </main>
   )
 }
