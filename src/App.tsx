@@ -6,7 +6,8 @@ import Informacoes from './pages/Informacoes'
 import DicasDeEstadia from './pages/DicasDeEstadia'
 import Presentes from './pages/Presentes'
 import Recados from './pages/Recados'
-import AdminRecados from './pages/AdminRecados'
+import Rsvp from './pages/Rsvp'
+import Admin from './pages/Admin'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Route path="/estadia" element={<DicasDeEstadia />} />
         <Route path="/presentes" element={<Presentes />} />
         <Route path="/recados" element={<Recados />} />
-        <Route path="/admin" element={<AdminRecados />} />
+        <Route path="/rsvp/:codigo" element={<Rsvp />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </HashRouter>
   )

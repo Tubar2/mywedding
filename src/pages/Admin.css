@@ -1,0 +1,88 @@
+.admin {
+  flex: 1;
+  padding: 2.5rem 1.25rem 3rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.admin__title {
+  font-size: 1.6rem;
+  color: var(--color-text);
+}
+
+.admin__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin__logout {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-text-soft);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-text-soft);
+  cursor: pointer;
+}
+
+.admin__login {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 20rem;
+}
+
+.admin__login label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+.admin__login input {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.4rem;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+}
+
+.admin__login button {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 0.4rem;
+  background: var(--color-gold);
+  color: #fff;
+  cursor: pointer;
+}
+
+.admin__erro {
+  color: #a94442;
+  font-size: 0.9rem;
+}
+
+.admin__tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-cream-dark);
+}
+
+.admin__tab {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--color-text-soft);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.admin__tab--ativa {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+}

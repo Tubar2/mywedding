@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Lista de convidados (dados pessoais, não deve ir para o repositório público)
+iCasei/convidados/lista.csv
