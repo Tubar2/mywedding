@@ -1,0 +1,84 @@
+.flores-mobile {
+  position: relative;
+  width: 100vw;
+  height: 105vw;
+  margin-top: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.flores-mobile__item {
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  height: auto;
+}
+
+.flores-mobile__spike-esquerda {
+  left: -4%;
+  bottom: 10%;
+  width: 40%;
+  transform: rotate(-6deg);
+  z-index: 2;
+}
+
+.flores-mobile__spike-centro {
+  left: 27%;
+  bottom: 16%;
+  width: 34%;
+  transform: rotate(4deg);
+  z-index: 1;
+}
+
+.flores-mobile__spike-direita {
+  right: -7%;
+  bottom: 12%;
+  width: 37%;
+  transform: rotate(9deg);
+  z-index: 3;
+}
+
+.flores-mobile__cluster-esquerda {
+  left: -8%;
+  bottom: -3%;
+  width: 48%;
+  transform: rotate(-4deg);
+  z-index: 5;
+}
+
+.flores-mobile__cluster-centro {
+  left: 18%;
+  bottom: -5%;
+  width: 56%;
+  z-index: 6;
+}
+
+.flores-mobile__cluster-amarela {
+  left: 51%;
+  bottom: -4%;
+  width: 46%;
+  transform: rotate(4deg);
+  z-index: 4;
+}
+
+.flores-mobile__cluster-direita {
+  right: -11%;
+  bottom: -1%;
+  width: 44%;
+  transform: rotate(6deg);
+  z-index: 5;
+}
+
+.flores-mobile__pompom {
+  left: 3%;
+  bottom: 5%;
+  width: 28%;
+  transform: rotate(-8deg);
+  z-index: 7;
+}
+
+@media (min-width: 720px) {
+  .flores-mobile {
+    display: none;
+  }
+}

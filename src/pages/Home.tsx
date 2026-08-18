@@ -1,4 +1,5 @@
 import Countdown from '../components/Countdown'
+import FloresMobile from '../components/FloresMobile'
 import logoLR from '../assets/images/logo-LR.svg'
 import flowerBackground from '../assets/images/flower-background.webp'
 import './Home.css'
@@ -15,6 +16,7 @@ function Home() {
           <p className="home__date">31 de Outubro de 2026</p>
           <Countdown targetDate={WEDDING_DATE} />
         </div>
+        <FloresMobile />
         <img
           className="home__flowers"
           src={flowerBackground}
