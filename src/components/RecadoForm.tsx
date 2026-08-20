@@ -10,6 +10,7 @@ function RecadoForm() {
   const [mensagem, setMensagem] = useState('')
   const [empresa, setEmpresa] = useState('') // honeypot — deve ficar sempre vazio
   const [status, setStatus] = useState<Status>('idle')
+  const [erroDetalhe, setErroDetalhe] = useState('')
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -27,18 +28,27 @@ function RecadoForm() {
     }
 
     setStatus('enviando')
+    setErroDetalhe('')
 
-    const { error } = await supabase.from('recados').insert({
-      nome: nomeLimpo.slice(0, NOME_MAX_LENGTH),
-      mensagem: mensagemLimpa.slice(0, MENSAGEM_MAX_LENGTH),
-    })
+    try {
+      const { error } = await supabase.from('recados').insert({
+        nome: nomeLimpo.slice(0, NOME_MAX_LENGTH),
+        mensagem: mensagemLimpa.slice(0, MENSAGEM_MAX_LENGTH),
+      })
 
-    if (error) {
+      if (error) {
+        setErroDetalhe(`${error.message} (${error.code ?? 'sem código'})`)
+        setStatus('erro')
+        return
+      }
+
+      setStatus('enviado')
+    } catch (excecao) {
+      const mensagemExcecao =
+        excecao instanceof Error ? excecao.message : String(excecao)
+      setErroDetalhe(mensagemExcecao)
       setStatus('erro')
-      return
     }
-
-    setStatus('enviado')
   }
 
   if (status === 'enviado') {
@@ -106,6 +116,7 @@ function RecadoForm() {
         <p className="recado-form__erro">
           Não conseguimos enviar sua mensagem agora. Tente novamente em
           alguns instantes.
+          {erroDetalhe && ` (${erroDetalhe})`}
         </p>
       )}
     </form>
