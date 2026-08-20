@@ -20,8 +20,8 @@
 
 .fotos__grid {
   margin-top: 2rem;
-  column-count: 3;
-  column-gap: 0.5rem;
+  column-count: 2;
+  column-gap: 0.6rem;
 }
 
 .fotos__photo-button {
@@ -58,8 +58,8 @@
   }
 
   .fotos__grid {
-    column-count: 6;
-    column-gap: 0.6rem;
+    column-count: 4;
+    column-gap: 0.8rem;
   }
 
   .fotos__photo-button {
