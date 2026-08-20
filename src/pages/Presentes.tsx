@@ -21,8 +21,32 @@ function Presentes() {
     setPresentes(data ?? [])
   }
 
+  function copiarComFallback(texto: string) {
+    const textarea = document.createElement('textarea')
+    textarea.value = texto
+    textarea.style.position = 'fixed'
+    textarea.style.opacity = '0'
+    document.body.appendChild(textarea)
+    textarea.focus()
+    textarea.select()
+    try {
+      document.execCommand('copy')
+    } finally {
+      document.body.removeChild(textarea)
+    }
+  }
+
   async function copiarPix() {
-    await navigator.clipboard.writeText(PIX_KEY)
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(PIX_KEY)
+      } else {
+        copiarComFallback(PIX_KEY)
+      }
+    } catch {
+      copiarComFallback(PIX_KEY)
+    }
+
     setPixCopiado(true)
     setTimeout(() => setPixCopiado(false), 2000)
   }
@@ -38,18 +62,23 @@ function Presentes() {
 
       <div className="presentes__intro">
         <p>
-          Hoje em casa já temos tudo o que precisamos, e o mais importante
-          pra gente é ter você com a gente nesse dia 💛
+          Hoje, nossa casa já tem tudo o que precisamos, e o mais importante
+          para nós é ter você com a gente nesse dia tão especial. 💛
+        </p>
+        <p className="presentes__intro-italico">
+          Mas, para quem quiser nos presentear, separamos algumas opções que
+          têm a nossa cara e que podem ajudar na escolha.
         </p>
         <p>
-          Mesmo assim, sabemos que muita gente gosta de dar um presente, e
-          separamos algumas coisinhas que combinam com a gente para ajudar
-          na escolha.
+          Para quem preferir nos presentear de uma forma mais livre, também
+          deixaremos nossa <em>chave Pix</em>. Toda contribuição será
+          recebida com muito carinho e fará parte dos nossos próximos
+          capítulos juntos. 💛
         </p>
         <p>
-          Também aceitamos qualquer valor via Pix, com o maior carinho. E se
-          quiser dar algo que não está na lista, fica à vontade — é só
-          entrar em contato com a gente. A lista é só uma sugestão!
+          E, claro, se você quiser nos presentear com algo que não esteja na
+          lista, fique à vontade! O mais importante é o carinho por trás do
+          presente.
         </p>
       </div>
 
@@ -64,6 +93,29 @@ function Presentes() {
           </div>
         </div>
       )}
+
+      <div className="presentes__info">
+        <h2 className="presentes__info-title">
+          Algumas informações que podem ajudar
+        </h2>
+        <ul className="presentes__info-lista">
+          <li>
+            🏠 <strong>Voltagem:</strong> 110V — também temos uma tomada 220V
+            na lavanderia
+          </li>
+          <li>
+            🛏️ <strong>Quarto do casal:</strong> cama Queen
+          </li>
+          <li>
+            🛏️ <strong>Quarto de hóspedes:</strong> duas camas de solteiro
+          </li>
+        </ul>
+      </div>
+
+      <p className="presentes__sugestao">
+        A lista é apenas uma sugestão — escolha o que fizer sentido para
+        você! 💛
+      </p>
 
       <div className="presentes__filtros">
         <button

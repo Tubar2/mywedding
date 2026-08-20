@@ -66,6 +66,47 @@
   cursor: pointer;
 }
 
+.presentes__intro-italico {
+  font-style: italic;
+  color: var(--color-text-soft);
+}
+
+.presentes__info {
+  margin: 2rem auto 0;
+  max-width: 30rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.75rem;
+}
+
+.presentes__info-title {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.presentes__info-lista {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.presentes__sugestao {
+  margin: 1.75rem auto 0;
+  max-width: 30rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-text-soft);
+}
+
 .presentes__filtros {
   margin-top: 2.25rem;
   display: flex;

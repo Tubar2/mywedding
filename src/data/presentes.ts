@@ -17,7 +17,7 @@ export const CATEGORIAS = [
   'Eletrônicos',
 ] as const
 
-export const PIX_KEY = '453d8b3f-8abb-4e03-9743-038221b07494'
+export const PIX_KEY = 'b17190c8-f302-4022-8bf6-b897f44a5d25'
 
 export function nomeLoja(url: string): string {
   try {

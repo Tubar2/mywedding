@@ -25,6 +25,8 @@ dist-ssr
 
 # Lista de convidados (dados pessoais, não deve ir para o repositório público)
 iCasei/convidados/lista.csv
+iCasei/convidados/familia-nome.csv
+supabase/familias-seed.sql
 
 # Fotos originais em alta resolução (864MB) — só as versões comprimidas em
 # src/assets/images/fotos/ vão para o repositório
