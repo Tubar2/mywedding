@@ -12,6 +12,13 @@
   text-align: center;
 }
 
+.fotos__subtitle {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-soft);
+}
+
 .fotos__vazio {
   margin-top: 2rem;
   text-align: center;

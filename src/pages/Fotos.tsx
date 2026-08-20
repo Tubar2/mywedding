@@ -53,6 +53,7 @@ function Fotos() {
   return (
     <main className="fotos">
       <h1 className="fotos__title">Fotos</h1>
+      <p className="fotos__subtitle">Alguns registros do nosso pré-wedding.</p>
 
       {total === 0 && (
         <p className="fotos__vazio">As fotos serão adicionadas em breve.</p>
