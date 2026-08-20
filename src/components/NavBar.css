@@ -62,6 +62,7 @@
   font-size: 1.05rem;
   color: var(--color-text-soft);
   border-top: 1px solid var(--color-cream-dark);
+  white-space: nowrap;
 }
 
 .navbar__link--active {
@@ -71,7 +72,7 @@
 
 @media (min-width: 720px) {
   .navbar {
-    padding: 1.1rem 3rem;
+    padding: 1.1rem 1.5rem;
   }
 
   .navbar__toggle {
@@ -85,14 +86,28 @@
     overflow: visible;
     background: none;
     border: none;
-    gap: 2.25rem;
+    gap: 1.25rem;
   }
 
   .navbar__link {
     padding: 0;
     border: none;
-    font-size: 1rem;
+    font-size: 0.92rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+  }
+}
+
+@media (min-width: 1100px) {
+  .navbar {
+    padding: 1.1rem 3rem;
+  }
+
+  .navbar__links {
+    gap: 2.25rem;
+  }
+
+  .navbar__link {
+    font-size: 1rem;
   }
 }

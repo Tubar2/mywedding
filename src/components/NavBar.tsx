@@ -5,6 +5,7 @@ import './NavBar.css'
 const links = [
   { to: '/', label: 'Início' },
   { to: '/historia', label: 'Nossa História' },
+  { to: '/fotos', label: 'Fotos' },
   { to: '/informacoes', label: 'Informações' },
   { to: '/estadia', label: 'Estadia' },
   { to: '/presentes', label: 'Presentes' },
