@@ -23,6 +23,15 @@ function resumo(convidados: Convidado[]) {
   return { confirmados, recusados, pendentes }
 }
 
+type Visao = 'agrupada' | 'lista'
+
+const FILTROS_STATUS: { valor: 'todos' | StatusConvidado; label: string }[] = [
+  { valor: 'todos', label: 'Todos' },
+  { valor: 'pendente', label: 'Pendente' },
+  { valor: 'confirmado', label: 'Confirmado' },
+  { valor: 'recusado', label: 'Recusado' },
+]
+
 function FamiliasPanel() {
   const [familias, setFamilias] = useState<FamiliaComConvidados[]>([])
   const [carregando, setCarregando] = useState(true)
@@ -33,6 +42,10 @@ function FamiliasPanel() {
   const [qrCodigoId, setQrCodigoId] = useState<string | null>(null)
   const [qrDataUrl, setQrDataUrl] = useState('')
   const [linkCopiadoId, setLinkCopiadoId] = useState<string | null>(null)
+  const [visao, setVisao] = useState<Visao>('agrupada')
+  const [filtroStatus, setFiltroStatus] = useState<'todos' | StatusConvidado>(
+    'todos',
+  )
 
   useEffect(() => {
     carregarFamilias()
@@ -149,14 +162,41 @@ function FamiliasPanel() {
     setQrCodigoId(familia.id)
   }
 
+  const convidadosLista = familias
+    .flatMap((familia) =>
+      familia.convidados.map((convidado) => ({
+        ...convidado,
+        familiaNome: familia.nome,
+      })),
+    )
+    .filter((c) => filtroStatus === 'todos' || c.status === filtroStatus)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+
   return (
     <div className="familias-panel">
-      <button
-        className="familias-panel__nova-btn"
-        onClick={() => setMostrarForm((v) => !v)}
-      >
-        {mostrarForm ? 'Cancelar' : '+ Nova família'}
-      </button>
+      <div className="familias-panel__topo">
+        <button
+          className="familias-panel__nova-btn"
+          onClick={() => setMostrarForm((v) => !v)}
+        >
+          {mostrarForm ? 'Cancelar' : '+ Nova família'}
+        </button>
+
+        <div className="familias-panel__visao-toggle">
+          <button
+            className={visao === 'agrupada' ? 'familias-panel__visao-ativa' : ''}
+            onClick={() => setVisao('agrupada')}
+          >
+            Agrupada por família
+          </button>
+          <button
+            className={visao === 'lista' ? 'familias-panel__visao-ativa' : ''}
+            onClick={() => setVisao('lista')}
+          >
+            Lista completa
+          </button>
+        </div>
+      </div>
 
       {mostrarForm && (
         <form className="familias-panel__form" onSubmit={criarFamilia}>
@@ -186,6 +226,58 @@ function FamiliasPanel() {
 
       {carregando && <p>Carregando...</p>}
 
+      {visao === 'lista' && (
+        <div className="familias-panel__filtros-status">
+          {FILTROS_STATUS.map((item) => (
+            <button
+              key={item.valor}
+              className={
+                filtroStatus === item.valor
+                  ? 'familias-panel__filtro-ativo'
+                  : ''
+              }
+              onClick={() => setFiltroStatus(item.valor)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {visao === 'lista' && (
+        <ul className="familias-panel__lista-flat">
+          {convidadosLista.length === 0 && <p>Nenhum convidado encontrado.</p>}
+          {convidadosLista.map((convidado) => (
+            <li key={convidado.id}>
+              <div>
+                <span className="familias-panel__lista-flat-nome">
+                  {convidado.nome}
+                </span>
+                <span className="familias-panel__lista-flat-familia">
+                  {convidado.familiaNome}
+                </span>
+              </div>
+              <select
+                value={convidado.status}
+                onChange={(event) =>
+                  alterarStatus(
+                    convidado.id,
+                    event.target.value as StatusConvidado,
+                  )
+                }
+              >
+                {Object.entries(LABEL_STATUS).map(([valor, label]) => (
+                  <option key={valor} value={valor}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {visao === 'agrupada' && (
       <div className="familias-panel__lista">
         {familias.map((familia) => {
           const { confirmados, recusados, pendentes } = resumo(
@@ -290,6 +382,7 @@ function FamiliasPanel() {
           )
         })}
       </div>
+      )}
     </div>
   )
 }

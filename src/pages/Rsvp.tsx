@@ -23,7 +23,6 @@ const OPCOES: { status: StatusConvidado; label: string }[] = [
 function Rsvp() {
   const { codigo } = useParams<{ codigo: string }>()
   const [estado, setEstado] = useState<Estado>('carregando')
-  const [nomeFamilia, setNomeFamilia] = useState('')
   const [convidados, setConvidados] = useState<Convidado[]>([])
   const [salvandoId, setSalvandoId] = useState<string | null>(null)
 
@@ -38,7 +37,6 @@ function Rsvp() {
           return
         }
 
-        setNomeFamilia(data[0].familia_nome)
         setConvidados(
           data.map((linha) => ({
             id: linha.convidado_id,
@@ -91,7 +89,6 @@ function Rsvp() {
   return (
     <main className="rsvp">
       <h1 className="rsvp__title">Confirmação de presença</h1>
-      <p className="rsvp__subtitle">Família {nomeFamilia}</p>
       <p className="rsvp__instrucao">
         Marque abaixo quem vai poder comparecer. Qualquer pessoa da família
         pode usar este link para atualizar as respostas.
