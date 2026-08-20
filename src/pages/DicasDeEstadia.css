@@ -33,6 +33,86 @@
   color: var(--color-text);
 }
 
+.estadia__aviao {
+  margin: 2rem auto 0;
+  max-width: 34rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.estadia__aviao-title {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--color-gold);
+}
+
+.estadia__aviao p {
+  margin-top: 0.85rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.estadia__aviao-lista {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.estadia__aviao-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--color-cream);
+  border-radius: 0.5rem;
+  text-align: left;
+}
+
+.estadia__aviao-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.estadia__aviao-nome {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.estadia__aviao-tempo {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+.estadia__aviao-rota {
+  flex-shrink: 0;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  color: var(--color-gold);
+  font-size: 0.82rem;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.estadia__aviao-rota:hover {
+  background-color: var(--color-gold);
+  color: #fff;
+}
+
+.estadia__aviao-obs {
+  font-size: 0.85rem !important;
+  color: var(--color-text-soft) !important;
+}
+
 .estadia__filtros {
   margin-top: 2.25rem;
   display: flex;
