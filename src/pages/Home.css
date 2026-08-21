@@ -24,7 +24,7 @@
 }
 
 .home__logo {
-  width: 7.5rem;
+  width: 6.25rem;
   height: auto;
 }
 
@@ -42,6 +42,13 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-soft);
+}
+
+.home__local {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--color-gold);
 }
 
 .home__hero-content .countdown {
@@ -68,7 +75,7 @@
   }
 
   .home__logo {
-    width: 15.5rem;
+    width: 13rem;
   }
 
   .home__names {
@@ -78,5 +85,9 @@
 
   .home__date {
     font-size: 1.4rem;
+  }
+
+  .home__local {
+    font-size: 1.1rem;
   }
 }
