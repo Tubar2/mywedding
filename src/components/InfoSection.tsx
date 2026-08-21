@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import type { Local, LocalExtraIcone } from '../data/locais'
 import './InfoSection.css'
 
@@ -6,7 +7,7 @@ interface InfoSectionProps {
   imagem: string
 }
 
-const icones: Record<LocalExtraIcone, JSX.Element> = {
+const icones: Record<LocalExtraIcone, ReactElement> = {
   'dress-code': (
     <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <path
