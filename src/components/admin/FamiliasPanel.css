@@ -39,6 +39,11 @@
   color: #fff !important;
 }
 
+.familias-panel__contagem {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
 .familias-panel__filtros-status {
   display: flex;
   flex-wrap: wrap;

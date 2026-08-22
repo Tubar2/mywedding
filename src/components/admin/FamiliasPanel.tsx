@@ -170,7 +170,15 @@ function FamiliasPanel() {
       })),
     )
     .filter((c) => filtroStatus === 'todos' || c.status === filtroStatus)
-    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+    .sort(
+      (a, b) =>
+        a.familiaNome.localeCompare(b.familiaNome, 'pt-BR') ||
+        a.nome.localeCompare(b.nome, 'pt-BR'),
+    )
+
+  const contagemLista = resumo(
+    familias.flatMap((familia) => familia.convidados),
+  )
 
   return (
     <div className="familias-panel">
@@ -225,6 +233,13 @@ function FamiliasPanel() {
       )}
 
       {carregando && <p>Carregando...</p>}
+
+      {visao === 'lista' && (
+        <p className="familias-panel__contagem">
+          {contagemLista.confirmados} confirmados · {contagemLista.recusados}{' '}
+          recusados · {contagemLista.pendentes} pendentes
+        </p>
+      )}
 
       {visao === 'lista' && (
         <div className="familias-panel__filtros-status">
