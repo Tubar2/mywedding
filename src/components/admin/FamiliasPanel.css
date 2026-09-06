@@ -106,6 +106,85 @@
   border-radius: 0.3rem;
 }
 
+.familias-panel__mensagens {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.familias-panel__mensagens-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.familias-panel__mensagens-topo .familias-panel__contagem {
+  margin-bottom: 0;
+}
+
+.familias-panel__mensagens-topo button {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: #fff;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.familias-panel__mensagem-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.6rem;
+}
+
+.familias-panel__mensagem-cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.familias-panel__mensagem-cabecalho h3 {
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.familias-panel__mensagem-cabecalho span {
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+}
+
+.familias-panel__mensagem-texto {
+  width: 100%;
+  resize: vertical;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 0.4rem;
+  background: var(--color-cream);
+  color: var(--color-text);
+}
+
+.familias-panel__mensagem-card > button {
+  align-self: flex-start;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-gold);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
 .familias-panel__form {
   display: flex;
   flex-direction: column;

@@ -16,6 +16,19 @@ const LABEL_STATUS: Record<StatusConvidado, string> = {
   recusado: 'Recusado',
 }
 
+const MODELO_MENSAGEM = `Oii! 🤍
+
+Passando para lembrar de confirmar a presença no nosso casamento! 💛
+O prazo é até 2 de outubro. É só acessar o link abaixo e marcar sua presença:
+
+🔗 {link}
+
+Esperamos vocês! 🥰`
+
+function mensagemPara(familia: FamiliaComConvidados) {
+  return MODELO_MENSAGEM.replace('{link}', linkRsvp(familia.codigo))
+}
+
 function resumo(convidados: Convidado[]) {
   const confirmados = convidados.filter((c) => c.status === 'confirmado').length
   const recusados = convidados.filter((c) => c.status === 'recusado').length
@@ -23,7 +36,7 @@ function resumo(convidados: Convidado[]) {
   return { confirmados, recusados, pendentes }
 }
 
-type Visao = 'agrupada' | 'lista'
+type Visao = 'agrupada' | 'lista' | 'mensagens'
 
 const FILTROS_STATUS: { valor: 'todos' | StatusConvidado; label: string }[] = [
   { valor: 'todos', label: 'Todos' },
@@ -46,6 +59,8 @@ function FamiliasPanel() {
   const [filtroStatus, setFiltroStatus] = useState<'todos' | StatusConvidado>(
     'todos',
   )
+  const [msgCopiadaId, setMsgCopiadaId] = useState<string | null>(null)
+  const [todasMsgsCopiadas, setTodasMsgsCopiadas] = useState(false)
 
   useEffect(() => {
     carregarFamilias()
@@ -153,6 +168,21 @@ function FamiliasPanel() {
     setTimeout(() => setLinkCopiadoId(null), 2000)
   }
 
+  async function copiarMensagem(familia: FamiliaComConvidados) {
+    await navigator.clipboard.writeText(mensagemPara(familia))
+    setMsgCopiadaId(familia.id)
+    setTimeout(() => setMsgCopiadaId(null), 2000)
+  }
+
+  async function copiarTodasMensagens(lista: FamiliaComConvidados[]) {
+    const texto = lista
+      .map((familia) => `*${familia.nome}*\n${mensagemPara(familia)}`)
+      .join('\n\n———\n\n')
+    await navigator.clipboard.writeText(texto)
+    setTodasMsgsCopiadas(true)
+    setTimeout(() => setTodasMsgsCopiadas(false), 2000)
+  }
+
   async function mostrarQrCode(familia: FamiliaComConvidados) {
     const url = await QRCode.toDataURL(linkRsvp(familia.codigo), {
       width: 480,
@@ -180,6 +210,12 @@ function FamiliasPanel() {
     familias.flatMap((familia) => familia.convidados),
   )
 
+  const familiasPendentes = familias
+    .filter((familia) =>
+      familia.convidados.some((convidado) => convidado.status === 'pendente'),
+    )
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+
   return (
     <div className="familias-panel">
       <div className="familias-panel__topo">
@@ -202,6 +238,14 @@ function FamiliasPanel() {
             onClick={() => setVisao('lista')}
           >
             Lista completa
+          </button>
+          <button
+            className={
+              visao === 'mensagens' ? 'familias-panel__visao-ativa' : ''
+            }
+            onClick={() => setVisao('mensagens')}
+          >
+            Mensagens (pendentes)
           </button>
         </div>
       </div>
@@ -290,6 +334,58 @@ function FamiliasPanel() {
             </li>
           ))}
         </ul>
+      )}
+
+      {visao === 'mensagens' && (
+        <div className="familias-panel__mensagens">
+          <div className="familias-panel__mensagens-topo">
+            <p className="familias-panel__contagem">
+              {familiasPendentes.length} famílias com convidados pendentes
+            </p>
+            {familiasPendentes.length > 0 && (
+              <button
+                onClick={() => copiarTodasMensagens(familiasPendentes)}
+              >
+                {todasMsgsCopiadas ? 'Copiado!' : 'Copiar todas'}
+              </button>
+            )}
+          </div>
+
+          {familiasPendentes.length === 0 && (
+            <p>Nenhuma família com convidados pendentes. 🎉</p>
+          )}
+
+          {familiasPendentes.map((familia) => {
+            const { confirmados, recusados, pendentes } = resumo(
+              familia.convidados,
+            )
+            return (
+              <article
+                key={familia.id}
+                className="familias-panel__mensagem-card"
+              >
+                <div className="familias-panel__mensagem-cabecalho">
+                  <h3>{familia.nome}</h3>
+                  <span>
+                    {confirmados} confirmados · {recusados} recusados ·{' '}
+                    {pendentes} pendentes
+                  </span>
+                </div>
+                <textarea
+                  className="familias-panel__mensagem-texto"
+                  readOnly
+                  rows={9}
+                  value={mensagemPara(familia)}
+                />
+                <button onClick={() => copiarMensagem(familia)}>
+                  {msgCopiadaId === familia.id
+                    ? 'Copiado!'
+                    : 'Copiar mensagem'}
+                </button>
+              </article>
+            )
+          })}
+        </div>
       )}
 
       {visao === 'agrupada' && (
