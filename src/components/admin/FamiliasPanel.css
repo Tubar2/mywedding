@@ -112,7 +112,8 @@
   gap: 0.85rem;
 }
 
-.familias-panel__mensagens-topo {
+.familias-panel__mensagens-topo,
+.familias-panel__lista-topo {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -120,11 +121,13 @@
   gap: 0.75rem;
 }
 
-.familias-panel__mensagens-topo .familias-panel__contagem {
+.familias-panel__mensagens-topo .familias-panel__contagem,
+.familias-panel__lista-topo .familias-panel__contagem {
   margin-bottom: 0;
 }
 
-.familias-panel__mensagens-topo button {
+.familias-panel__mensagens-topo button,
+.familias-panel__lista-topo button {
   padding: 0.4rem 1rem;
   border: 1px solid var(--color-gold);
   border-radius: 999px;
@@ -368,4 +371,8 @@
   color: var(--color-gold);
   font-size: 0.82rem;
   cursor: pointer;
+}
+
+.familias-panel__lista-topo {
+  margin-bottom: 0.75rem;
 }

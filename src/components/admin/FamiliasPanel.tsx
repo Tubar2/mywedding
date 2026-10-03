@@ -61,6 +61,7 @@ function FamiliasPanel() {
   )
   const [msgCopiadaId, setMsgCopiadaId] = useState<string | null>(null)
   const [todasMsgsCopiadas, setTodasMsgsCopiadas] = useState(false)
+  const [confirmadosCopiados, setConfirmadosCopiados] = useState(false)
 
   useEffect(() => {
     carregarFamilias()
@@ -183,6 +184,20 @@ function FamiliasPanel() {
     setTimeout(() => setTodasMsgsCopiadas(false), 2000)
   }
 
+  async function copiarConfirmados() {
+    const nomes = [...familias]
+      .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+      .flatMap((familia) =>
+        familia.convidados
+          .filter((convidado) => convidado.status === 'confirmado')
+          .map((convidado) => convidado.nome)
+          .sort((a, b) => a.localeCompare(b, 'pt-BR')),
+      )
+    await navigator.clipboard.writeText(nomes.join('\n'))
+    setConfirmadosCopiados(true)
+    setTimeout(() => setConfirmadosCopiados(false), 2000)
+  }
+
   async function mostrarQrCode(familia: FamiliaComConvidados) {
     const url = await QRCode.toDataURL(linkRsvp(familia.codigo), {
       width: 480,
@@ -279,10 +294,17 @@ function FamiliasPanel() {
       {carregando && <p>Carregando...</p>}
 
       {visao === 'lista' && (
-        <p className="familias-panel__contagem">
-          {contagemLista.confirmados} confirmados · {contagemLista.recusados}{' '}
-          recusados · {contagemLista.pendentes} pendentes
-        </p>
+        <div className="familias-panel__lista-topo">
+          <p className="familias-panel__contagem">
+            {contagemLista.confirmados} confirmados · {contagemLista.recusados}{' '}
+            recusados · {contagemLista.pendentes} pendentes
+          </p>
+          {contagemLista.confirmados > 0 && (
+            <button onClick={copiarConfirmados}>
+              {confirmadosCopiados ? 'Copiado!' : 'Copiar confirmados'}
+            </button>
+          )}
+        </div>
       )}
 
       {visao === 'lista' && (
